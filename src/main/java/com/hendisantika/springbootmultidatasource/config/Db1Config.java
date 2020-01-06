@@ -15,6 +15,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories
+@EnableJpaRepositories(
+        entityManagerFactoryRef = "db1EntityManagerFactory", basePackages = {
+        "com.hendisantika.springbootmultidatasource.db1.repository", "com.hendisantika.springbootmultidatasource.db2.repository"})
 public class Db1Config {
 }
