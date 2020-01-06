@@ -1,6 +1,6 @@
-package com.hendisantika.springbootmultidatasource.db.repository;
+package com.hendisantika.springbootmultidatasource.db1.repository;
 
-import com.hendisantika.springbootmultidatasource.db.model.Db1Entity;
+import com.hendisantika.springbootmultidatasource.db1.model.Db1Entity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

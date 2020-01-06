@@ -1,4 +1,4 @@
-package com.hendisantika.springbootmultidatasource.db.model;
+package com.hendisantika.springbootmultidatasource.db2.model;
 
 import lombok.Data;
 
@@ -13,11 +13,12 @@ import javax.persistence.Id;
  * Email: hendisantika@gmail.com
  * Telegram : @hendisantika34
  * Date: 06/01/20
- * Time: 19.51
+ * Time: 19.53
  */
 @Entity
 @Data
-public class Db1Entity {
+public class Db2Entity {
+
     @Id
     Integer key;
 
