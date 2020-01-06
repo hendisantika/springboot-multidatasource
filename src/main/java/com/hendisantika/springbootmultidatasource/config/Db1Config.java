@@ -9,9 +9,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 /**
@@ -53,5 +56,12 @@ public class Db1Config {
                 .packages("com.gokuldasputhenpurakkal.db1.model")
                 .persistenceUnit("db1")
                 .build();
+    }
+
+    @Primary
+    @Bean(name = "db1TransactionManager")
+    public PlatformTransactionManager transactionManager(
+            @Qualifier("db1EntityManagerFactory") EntityManagerFactory db1EntityManagerFactory) {
+        return new JpaTransactionManager(db1EntityManagerFactory);
     }
 }
