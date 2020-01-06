@@ -2,6 +2,7 @@ package com.hendisantika.springbootmultidatasource.controller;
 
 import com.hendisantika.springbootmultidatasource.db1.model.Db1Entity;
 import com.hendisantika.springbootmultidatasource.db1.repository.Db1EntityRepository;
+import com.hendisantika.springbootmultidatasource.db2.model.Db2Entity;
 import com.hendisantika.springbootmultidatasource.db2.repository.Db2EntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -31,6 +32,11 @@ public class DbController {
     @GetMapping(value = "/api/db1", produces = MediaType.APPLICATION_JSON_VALUE)
     public Db1Entity testDatabase1(@RequestHeader(required = true, value = HttpHeaders.ACCEPT_LANGUAGE) final String languageCode) {
         return db1EntityRepository.getDb2Entity();
+    }
+
+    @GetMapping(value = "/api/db2", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Db2Entity testDatabase2(@RequestHeader(required = true, value = HttpHeaders.ACCEPT_LANGUAGE) final String languageCode) {
+        return db2EntityRepository.getDb2Entity();
     }
 
 }
