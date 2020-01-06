@@ -30,7 +30,7 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @EnableJpaRepositories(
         entityManagerFactoryRef = "db1EntityManagerFactory", basePackages = {
-        "com.hendisantika.springbootmultidatasource.db1.repository", "com.hendisantika.springbootmultidatasource.db2.repository"})
+        "com.hendisantika.springbootmultidatasource.db1.repository", "com.hendisantika.springbootmultidatasource.config"})
 public class Db1Config {
     @Primary
     @Bean(name = "db1DataSourceProperties")
@@ -53,7 +53,7 @@ public class Db1Config {
             EntityManagerFactoryBuilder builder, @Qualifier("db1DataSource") DataSource db1DataSource) {
         return builder
                 .dataSource(db1DataSource)
-                .packages("com.gokuldasputhenpurakkal.db1.model")
+                .packages("com.hendisantika.springbootmultidatasource.db1.model")
                 .persistenceUnit("db1")
                 .build();
     }

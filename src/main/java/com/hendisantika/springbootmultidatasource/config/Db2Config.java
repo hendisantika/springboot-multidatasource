@@ -50,7 +50,7 @@ public class Db2Config {
             EntityManagerFactoryBuilder builder, @Qualifier("dataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .packages("com.gokuldasputhenpurakkal.db2.model")
+                .packages("com.hendisantika.springbootmultidatasource.db2.model")
                 .persistenceUnit("db2")
                 .build();
     }
