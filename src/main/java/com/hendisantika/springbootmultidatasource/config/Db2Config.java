@@ -1,5 +1,8 @@
 package com.hendisantika.springbootmultidatasource.config;
 
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -19,4 +22,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
         entityManagerFactoryRef = "entityManagerFactory", basePackages = {
         "com.hendisantika.springbootmultidatasource.db2.repository"})
 public class Db2Config {
+
+    @Bean(name = "dataSourceProperties")
+    @ConfigurationProperties("db2.datasource")
+    public DataSourceProperties dataSourceProperties() {
+        return new DataSourceProperties();
+    }
 }
