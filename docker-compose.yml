@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:18.0
+    container_name: springboot-multidatasource-postgres
+    environment:
+      POSTGRES_USER: yu71
+      POSTGRES_PASSWORD: 53cret
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U yu71" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
